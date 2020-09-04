@@ -5,7 +5,7 @@ class Bouncy():
 	def __init__(self):
 		nums = count(1)
 		rebote = self.running_total(map(lambda n: float(self.is_rebote(n)), count(1)))
-		boncy = next((n for n, b in zip(nums, rebote) if b / n == 0.50))
+		boncy = next((n for n, b in zip(nums, rebote) if b / n == 0.99))
 		print(boncy)
 
 	def pareja(self, iterable):
@@ -22,11 +22,11 @@ class Bouncy():
 		return list(map(int, str(n)))
 
 	def is_aumentando(self, n):
-        #esta funcion me retorno todos los elementos siempre y cuando el nº previo sea inferior al actual
+        #esta funcion me retorno todos los elementos siempre y cuando el nº previo sea inferior o igual al actual
 		return all(prev <= curr for prev, curr in self.pareja(self.digitos(n)))
 
 	def is_disminuyendo(self, n):
-        #esta funcion me retorno todos los elementos siempre y cuando el nº previo sea mayor al actual
+        #esta funcion me retorno todos los elementos siempre y cuando el nº previo sea mayor o igual al actual
 		return all(prev >= curr for prev, curr in self.pareja(self.digitos(n)))
 
 	def is_rebote(self, n):
